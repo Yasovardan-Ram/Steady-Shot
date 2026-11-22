@@ -4,4 +4,10 @@ node_modules/
 .env.*
 *.log
 .DS_Store
+# Windows executable builds
+*.exe
+
+# Godot generated files
+.godot/
+.export/
 Thumbs.db
