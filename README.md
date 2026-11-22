@@ -1,3 +1,4 @@
+
 # SteadyShot
 
 Desert canyon sniper game. Godot 4.2+ (standard build). The core game has no external dependencies; the optional Presage sensor bridge uses Node.js packages.
@@ -142,3 +143,6 @@ to be errors.
 - Refined the rate-panel typography and spacing.
 - Startup reference animation (72 BPM and 14 breaths/min) is display-only, clearly labelled as reference-only, and expires after three minutes if no real sample arrives. It is never passed to player stability or recorded as Presage data.
 - The first valid real sample from either metric permanently ends both startup reference animations for the session; each panel then shows only its own actual measurements. Later intermittent readings retain the real sample history; gaps longer than 20 seconds are shown as gaps rather than connected as if continuous. The display never falls back to the startup reference after real data has arrived.
+=======
+# Steady-Shot
+
