@@ -1,0 +1,12 @@
+{
+  "name": "steadyshot-presage-bridge",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node sensor.js"
+  },
+  "dependencies": {
+    "@smartspectra/node-sdk": "3.5.0",
+    "ws": "^8.18.0"
+  }
+}

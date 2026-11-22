@@ -1,0 +1,72 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/environment/desert_canyon.tscn" id="1_env"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="3_hud"]
+[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_enemy"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="5_gm"]
+[ext_resource type="Script" path="res://scripts/sensor_bridge.gd" id="16_sensor"]
+[ext_resource type="Script" path="res://scripts/ambience.gd" id="6_amb"]
+[ext_resource type="Script" path="res://scripts/scenery.gd" id="12_scn"]
+[ext_resource type="Script" path="res://scripts/day_night.gd" id="13_dn"]
+[ext_resource type="Script" path="res://scripts/night_vision.gd" id="14_nv"]
+[ext_resource type="Script" path="res://scripts/sandstorm.gd" id="15_storm"]
+[ext_resource type="AudioStream" path="res://audio/hit_body.wav" id="7_hitbody"]
+[ext_resource type="AudioStream" path="res://audio/hit_head.wav" id="8_hithead"]
+[ext_resource type="AudioStream" path="res://audio/breach_alarm.wav" id="9_alarm"]
+[ext_resource type="AudioStream" path="res://audio/wave_horn.wav" id="10_horn"]
+[ext_resource type="AudioStream" path="res://audio/bullet_impact.wav" id="11_impact"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DesertCanyon" parent="." instance=ExtResource("1_env")]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 52.05, -8)
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="Bullets" type="Node3D" parent="." groups=["bullet_root"]]
+
+[node name="Effects" type="Node3D" parent="."]
+
+[node name="Ambience" type="Node" parent="."]
+script = ExtResource("6_amb")
+
+[node name="Scenery" type="Node3D" parent="."]
+script = ExtResource("12_scn")
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
+
+[node name="Sandstorm" type="Node3D" parent="."]
+script = ExtResource("15_storm")
+
+[node name="DayNight" type="Node" parent="."]
+script = ExtResource("13_dn")
+
+[node name="NightVision" type="CanvasLayer" parent="."]
+script = ExtResource("14_nv")
+
+[node name="SensorBridge" type="Node" parent="."]
+script = ExtResource("16_sensor")
+
+[node name="GameManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_gm")
+enemy_scene = ExtResource("4_enemy")
+impact_sound = ExtResource("11_impact")
+
+[node name="HitBodySound" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("7_hitbody")
+volume_db = -2.0
+
+[node name="HitHeadSound" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("8_hithead")
+
+[node name="BreachSound" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("9_alarm")
+volume_db = -3.0
+
+[node name="WaveSound" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("10_horn")
+volume_db = -4.0

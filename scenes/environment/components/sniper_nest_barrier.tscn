@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Material" path="res://scenes/environment/materials/rock_material.tres" id="1_rock"]
+
+[sub_resource type="BoxShape3D" id="Shape_wall_ns"]
+size = Vector3(24, 4, 0.4)
+
+[sub_resource type="BoxShape3D" id="Shape_wall_ew"]
+size = Vector3(0.4, 4, 17.2)
+
+[sub_resource type="BoxMesh" id="Mesh_block_a"]
+size = Vector3(7, 0.9, 0.7)
+
+[sub_resource type="BoxMesh" id="Mesh_block_b"]
+size = Vector3(6, 0.9, 0.8)
+
+[sub_resource type="BoxMesh" id="Mesh_block_c"]
+size = Vector3(7.5, 0.9, 0.7)
+
+[sub_resource type="BoxMesh" id="Mesh_block_side"]
+size = Vector3(0.7, 0.9, 5)
+
+[node name="SniperNestBarrier" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="BarrierFront" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10.3)
+shape = SubResource("Shape_wall_ns")
+
+[node name="BarrierBack" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6.8)
+shape = SubResource("Shape_wall_ns")
+
+[node name="BarrierLeft" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6, 2, -1.75)
+shape = SubResource("Shape_wall_ew")
+
+[node name="BarrierRight" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6, 2, -1.75)
+shape = SubResource("Shape_wall_ew")
+
+[node name="ParapetLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, -0.15, -10.9)
+material_override = ExtResource("1_rock")
+mesh = SubResource("Mesh_block_a")
+
+[node name="ParapetCenter" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.15, -10.95)
+material_override = ExtResource("1_rock")
+mesh = SubResource("Mesh_block_b")
+
+[node name="ParapetRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4, -0.15, -10.9)
+material_override = ExtResource("1_rock")
+mesh = SubResource("Mesh_block_c")
+
+[node name="ParapetSideLeft" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3, 0.45, -7.0)
+material_override = ExtResource("1_rock")
+mesh = SubResource("Mesh_block_side")
+
+[node name="ParapetSideRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3, 0.45, -7.0)
+material_override = ExtResource("1_rock")
+mesh = SubResource("Mesh_block_side")

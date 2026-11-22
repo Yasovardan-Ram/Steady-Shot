@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3]
+
+[ext_resource type="Shader" path="res://scenes/environment/materials/desert_rock.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://scenes/environment/materials/desert_noise.tres" id="2_noise"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/noise_tex = ExtResource("2_noise")
+shader_parameter/slope_min = 0.3
+shader_parameter/slope_max = 0.58
+shader_parameter/dust_amount = 0.0
+shader_parameter/strata_scale = 0.8

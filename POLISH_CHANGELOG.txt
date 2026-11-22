@@ -1,0 +1,24 @@
+STEADYSHOT — FINAL POLISH PASS
+
+Changes
+- Stacked the heart-rate and breathing-rate graphs at the bottom-right; removed graph-internal sensor status captions.
+- Moved the wind gauge to the upper-right HUD area below the radar/level badge.
+- Made startup graph references visualization-only; they are no longer shown as numeric physiological readings.
+- Gently lifted night ambient/sky lighting while keeping the night palette dark.
+- Changed sandstorm thermal optics so the scope background is not orange-tinted; only faint head/torso heat overlays are rendered.
+- Applied the requested base and sandstorm hitbox bonuses from fixed dimensions, with cumulative 2% and 1% difficulty reductions after levels 6 and 15.
+- Expanded end-of-run consistency details to show rated shots / total shots and all four shot categories.
+- Replaced the commander line with locally synthesized eSpeak audio and added a quiet original cinematic pad with briefing-only fade/stop behavior.
+
+Audio note
+- The commander voice is locally synthesized speech, not a professional human recording.
+
+Validation
+- Resource path references were scanned; the only non-literal match is the existing dynamic sniper_shot_%d.wav pattern, whose numbered files are present.
+- WAV assets were checked with ffprobe.
+- Godot headless/editor validation and live gameplay/login/Presage testing were not performed because a Godot executable is not available in this environment.
+
+
+ v8.6 - Commander briefing replacement
+- Replaced the previous short fort-protection commander line with the full user-provided Valhalla/final-stand speech.
+- Added the user-supplied ElevenLabs commander recording as audio/commander_briefing.mp3 and configured the briefing to prefer it, retaining the previous WAV as a fallback.
