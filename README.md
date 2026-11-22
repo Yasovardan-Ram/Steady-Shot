@@ -11,6 +11,7 @@ SteadyShot puts you on a desert-canyon overlook. Hold the position, track advanc
 > **Window / viewport:** 1600 × 900 (resizable/scalable through Godot display settings)
 
 ---
+<img width="1600" height="892" alt="Screenshot 2026-11-23 041310" src="https://github.com/user-attachments/assets/882cef69-b777-406f-a582-94cc8e8546ae" />
 
 ## Contents
 
